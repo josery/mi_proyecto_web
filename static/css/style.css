@@ -1,0 +1,24 @@
+/* Estilos Generales */
+body {
+    background-color: #f8f9fa;
+}
+
+/* Contenedor de la tabla de tareas */
+#task-table {
+    margin-top: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: .375rem;
+    overflow: hidden; /* Para que el borde redondeado se aplique bien */
+}
+
+/* Botones de acción */
+.action-buttons .btn {
+    margin-right: 5px;
+}
+
+/* Ajustes para el contenedor del Gantt */
+.gantt-container {
+    overflow: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}

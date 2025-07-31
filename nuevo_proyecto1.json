@@ -1,0 +1,80 @@
+{
+    "info_general": {
+        "nombre_proyecto": "Migración a Aplicación Web",
+        "responsable_proyecto": "Equipo de Desarrollo"
+    },
+    "tasks": [
+        {
+            "data": {
+                "area": "Desarrollo",
+                "avance_reportado": "50.0%",
+                "dependencia": "",
+                "duracion": 10,
+                "edt": "1.0",
+                "estado": "ATRASADA",
+                "fin_previsto": "10/08/24",
+                "fin_real": "",
+                "inicio": "01/08/24",
+                "porcentaje": "0%",
+                "responsable": "Ana",
+                "titulo": "Fase 1: Backend"
+            },
+            "id": "1.0",
+            "parent": ""
+        },
+        {
+            "data": {
+                "area": "Desarrollo",
+                "avance_reportado": "100.0%",
+                "dependencia": "",
+                "duracion": 2,
+                "edt": "1.1",
+                "estado": "COMPLETADA A TIEMPO",
+                "fin_previsto": "02/08/24",
+                "fin_real": "02/08/24",
+                "inicio": "01/08/24",
+                "porcentaje": "100%",
+                "responsable": "Ana",
+                "titulo": "Configurar Servidor Flask"
+            },
+            "id": "1.1",
+            "parent": "1.0"
+        },
+        {
+            "data": {
+                "area": "Diseño",
+                "avance_reportado": "10.0%",
+                "dependencia": "1.0",
+                "duracion": 10,
+                "edt": "2.0",
+                "estado": "ATRASADA",
+                "fin_previsto": "15/08/24",
+                "fin_real": "",
+                "inicio": "06/08/24",
+                "porcentaje": "0%",
+                "responsable": "Luis",
+                "titulo": "Fase 2: Frontend"
+            },
+            "id": "2.0",
+            "parent": ""
+        },
+        {
+            "id": "3.0",
+            "parent": "",
+            "data": {
+                "titulo": "test5",
+                "responsable": "jose5",
+                "edt": "3.0",
+                "area": "",
+                "inicio": "",
+                "fin_previsto": "",
+                "fin_real": "",
+                "porcentaje": "0%",
+                "avance_reportado": "0%",
+                "dependencia": "",
+                "duracion": "N/D",
+                "estado": "N/D"
+            }
+        }
+    ]
+}
