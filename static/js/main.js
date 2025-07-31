@@ -309,6 +309,28 @@ document.addEventListener('DOMContentLoaded', function() {
         data.estado = finReal ? (finPrevisto && finReal <= finPrevisto ? "COMPLETADA A TIEMPO" : "COMPLETADA CON RETRASO") : (inicio ? (finPrevisto && finPrevisto < new Date().setHours(0,0,0,0) ? "ATRASADA" : "ACTIVA") : "PENDIENTE");
     }
 
+    // Custom formatter for traffic light progress column
+    function trafficLightFormatter(cell) {
+        const value = cell.getValue();
+        const progress = parseFloat(value) || 0;
+        
+        let color;
+        if (progress >= 0 && progress <= 29) {
+            color = "#DB4437"; // Red
+        } else if (progress >= 30 && progress <= 69) {
+            color = "#F2C037"; // Yellow
+        } else if (progress >= 70 && progress <= 100) {
+            color = "#68B04D"; // Green
+        } else {
+            color = "#e0e0e0"; // Gray for invalid values
+        }
+        
+        return `<div style="display: flex; align-items: center; justify-content: center;">
+                    <div style="width: 20px; height: 20px; border-radius: 50%; background-color: ${color}; margin-right: 8px; border: 1px solid #ccc;"></div>
+                    <span>${value}</span>
+                </div>`;
+    }
+
     function renderTaskTable() {
         const buildTree = (tasks) => {
             const taskMap = tasks.reduce((map, task) => {
@@ -342,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 { title: "Fin Previsto", field: "data.fin_previsto", hozAlign: "center", editor: "input" }, 
                 { title: "Fin Real", field: "data.fin_real", hozAlign: "center", editor: "input" }, 
                 { title: "Duración", field: "data.duracion", width: 90, hozAlign: "center" }, 
-                { title: "% Avance", field: "data.avance_reportado", hozAlign: "center", width: 120, editor: "input", formatter:"progress", formatterParams:{color:["#68B04D", "#F2C037", "#DB4437"], legend:true} }, 
+                { title: "% Avance", field: "data.avance_reportado", hozAlign: "center", width: 120, editor: "input", formatter: trafficLightFormatter }, 
                 { title: "Estado", field: "data.estado" }, 
             ],
             dataTreeRowMoved: (row) => {
