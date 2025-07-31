@@ -69,5 +69,68 @@ def save_project_as():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route('/test')
+def test_traffic_light():
+    return '''<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Traffic Light Formatter</title>
+    <style>
+        .test-container {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .test-row {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h2>Traffic Light Progress Formatter Test</h2>
+        <div id="test-results"></div>
+    </div>
+
+    <script>
+        // Copy of the traffic light formatter function
+        function trafficLightFormatter(value) {
+            const progress = parseFloat(value) || 0;
+            
+            let color;
+            if (progress >= 0 && progress <= 29) {
+                color = "#DB4437"; // Red
+            } else if (progress >= 30 && progress <= 69) {
+                color = "#F2C037"; // Yellow
+            } else if (progress >= 70 && progress <= 100) {
+                color = "#68B04D"; // Green
+            } else {
+                color = "#e0e0e0"; // Gray for invalid values
+            }
+            
+            return `<div style="display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 20px; height: 20px; border-radius: 50%; background-color: ${color}; margin-right: 8px; border: 1px solid #ccc;"></div>
+                        <span>${value}</span>
+                    </div>`;
+        }
+
+        // Test different progress values
+        const testValues = ["0%", "15%", "29%", "30%", "45%", "69%", "70%", "85%", "100%", "50.0%", "10.0%"];
+        const container = document.getElementById('test-results');
+        
+        testValues.forEach(value => {
+            const div = document.createElement('div');
+            div.className = 'test-row';
+            div.innerHTML = `Test value: ${value} → ${trafficLightFormatter(value)}`;
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>'''
+
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
