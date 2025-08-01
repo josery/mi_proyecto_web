@@ -1,0 +1,149 @@
+{
+    "projectName": "proyecto_ejemplo",
+    "tasks": [
+        {
+            "id": "5.0",
+            "parent_id": null,
+            "data": {
+                "titulo": "actividad 1",
+                "responsable": "Jose 1",
+                "avance_reportado": "0",
+                "inicio": "",
+                "fin_previsto": "",
+                "fin_real": ""
+            }
+        },
+        {
+            "id": "1.0",
+            "parent_id": null,
+            "data": {
+                "avance_reportado": "50%",
+                "edt": "1.0",
+                "fin_previsto": "10/08/24",
+                "fin_real": "",
+                "inicio": "01/08/24",
+                "responsable": "Ana",
+                "titulo": "Fase 1: Backend"
+            },
+            "_children": [
+                {
+                    "task_id": 2,
+                    "id": "1.1",
+                    "parent_id": 1,
+                    "data": {
+                        "avance_reportado": "100%",
+                        "duracion": "2",
+                        "edt": "1.1",
+                        "estado": "ATRASADA",
+                        "fin_previsto": "02/08/24",
+                        "fin_real": "",
+                        "inicio": "01/08/24",
+                        "porcentaje": "100",
+                        "responsable": "Ana",
+                        "titulo": "Configurar Servidor Flask"
+                    },
+                    "_children": []
+                }
+            ]
+        },
+        {
+            "id": "2.0",
+            "parent_id": null,
+            "data": {
+                "avance_reportado": "10%",
+                "edt": "2.0",
+                "fin_previsto": "15/08/24",
+                "fin_real": "",
+                "inicio": "06/08/24",
+                "responsable": "Luis",
+                "titulo": "Fase 2: Frontend"
+            },
+            "_children": []
+        },
+        {
+            "id": "3.0",
+            "parent_id": null,
+            "data": {
+                "avance_reportado": "0%",
+                "edt": "3.0",
+                "fin_previsto": "02/07/25",
+                "fin_real": "",
+                "inicio": "30/06/25",
+                "responsable": "Jose 1",
+                "titulo": "actividad 1"
+            },
+            "_children": [
+                {
+                    "task_id": 5,
+                    "id": "3.1",
+                    "parent_id": 4,
+                    "data": {
+                        "avance_reportado": "0%",
+                        "duracion": "3",
+                        "edt": "3.1",
+                        "estado": "ATRASADA",
+                        "fin_previsto": "02/07/25",
+                        "fin_real": "",
+                        "inicio": "30/06/25",
+                        "porcentaje": "0",
+                        "responsable": "tarea1",
+                        "titulo": "tarea1"
+                    },
+                    "_children": []
+                }
+            ]
+        },
+        {
+            "id": "4.0",
+            "parent_id": null,
+            "data": {
+                "avance_reportado": "0%",
+                "edt": "4.0",
+                "fin_previsto": "",
+                "fin_real": "",
+                "inicio": "",
+                "responsable": "tarea2",
+                "titulo": "tarea2"
+            },
+            "_children": [
+                {
+                    "task_id": 7,
+                    "id": "4.1",
+                    "parent_id": 6,
+                    "data": {
+                        "avance_reportado": "0%",
+                        "duracion": "N/D",
+                        "edt": "4.1",
+                        "estado": "PENDIENTE",
+                        "fin_previsto": "",
+                        "fin_real": "",
+                        "inicio": "",
+                        "porcentaje": "0",
+                        "responsable": "tarea4",
+                        "titulo": "tarea4"
+                    },
+                    "_children": [
+                        {
+                            "task_id": 8,
+                            "id": "4.1.1",
+                            "parent_id": 7,
+                            "data": {
+                                "avance_reportado": "0%",
+                                "duracion": "N/D",
+                                "edt": "4.1.1",
+                                "estado": "PENDIENTE",
+                                "fin_previsto": "",
+                                "fin_real": "",
+                                "inicio": "",
+                                "porcentaje": "0",
+                                "responsable": "4",
+                                "titulo": "4"
+                            },
+                            "_children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

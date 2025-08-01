@@ -173,49 +173,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // === FUNCIÓN MODIFICADA PARA MEJORAR LA USABILIDAD ===
     function updateButtonStates(id) {
-        // Gestionar la selección/deselección de filas
+        if (state.selectedId === id) return;
         if (state.selectedId) taskTable.deselectRow(state.selectedId);
         if (id) taskTable.selectRow(id);
+
         state.selectedId = id;
-
         const selected = !!id;
-
-        // Botones de Editar y Eliminar dependen directamente de si hay una selección
+        
         editTaskBtn.disabled = !selected;
         deleteTaskBtn.disabled = !selected;
-
-        // El botón de Añadir Actividad siempre está visible
-        addActivityBtn.style.display = 'inline-block';
-
-        // Ocultar los botones contextuales por defecto
+        
+        addActivityBtn.style.display = 'none';
         addTaskBtn.style.display = 'none';
         addSubtaskBtn.style.display = 'none';
-
-        // Si no hay nada seleccionado, desactivar los botones de estructura y terminar
+        
         if (!selected) {
+            addActivityBtn.style.display = 'inline-block';
             [moveUpBtn, moveDownBtn, indentBtn, unindentBtn].forEach(b => b.disabled = true);
             return;
         }
-
-        // Si hay una selección, configurar el resto de botones
+        
         const row = taskTable.getRow(id);
         if (!row) return;
 
-        // Activar/desactivar botones de estructura
         const hasParent = !!row.getData().parent;
+        
         moveUpBtn.disabled = !row.getPrevRow();
         moveDownBtn.disabled = !row.getNextRow();
         indentBtn.disabled = !row.getPrevRow();
         unindentBtn.disabled = !hasParent;
 
-        // Mostrar el botón contextual correcto (Añadir Tarea o Subtarea)
         const edt = row.getData().data.edt || "";
         if (edt.endsWith('.0')) {
-            addTaskBtn.style.display = 'inline-block'; // Es una Actividad
+            addTaskBtn.style.display = 'inline-block';
         } else {
-            addSubtaskBtn.style.display = 'inline-block'; // Es una Tarea o Subtarea
+            addSubtaskBtn.style.display = 'inline-block';
         }
     }
 
@@ -336,12 +329,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const rowEl = e.target.closest('.tabulator-row');
         if (rowEl) {
             const row = taskTable.getRow(rowEl);
-            // Si hacemos clic en la misma fila, la deseleccionamos. Si no, seleccionamos la nueva.
-            const currentId = state.selectedId;
-            const newId = row.getData().id;
-            updateButtonStates(currentId === newId ? null : newId);
+            updateButtonStates(row.getData().id);
         } else {
-            // Si hacemos clic fuera de cualquier fila, deseleccionamos todo.
             updateButtonStates(null);
         }
     });

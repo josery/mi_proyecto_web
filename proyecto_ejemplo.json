@@ -1,10 +1,9 @@
 {
-    "info_general": {
-        "nombre_proyecto": "Migración a Aplicación Web",
-        "responsable_proyecto": "Equipo de Desarrollo"
-    },
+    "projectName": "proyecto_ejemplo.json",
     "tasks": [
         {
+            "id": "1.0",
+            "parent": "",
             "data": {
                 "area": "Desarrollo",
                 "avance_reportado": "50.0%",
@@ -18,29 +17,11 @@
                 "porcentaje": "50%",
                 "responsable": "Ana",
                 "titulo": "Fase 1: Backend"
-            },
-            "id": "1.0",
-            "parent": ""
+            }
         },
         {
-            "data": {
-                "area": "Desarrollo",
-                "avance_reportado": "100.0%",
-                "dependencia": "",
-                "duracion": 2,
-                "edt": "1.1",
-                "estado": "COMPLETADA A TIEMPO",
-                "fin_previsto": "02/08/24",
-                "fin_real": "02/08/24",
-                "inicio": "01/08/24",
-                "porcentaje": "100%",
-                "responsable": "Ana",
-                "titulo": "Configurar Servidor Flask"
-            },
-            "id": "1.1",
-            "parent": "1.0"
-        },
-        {
+            "id": "2.0",
+            "parent": "",
             "data": {
                 "area": "Diseño",
                 "avance_reportado": "10.0%",
@@ -54,9 +35,7 @@
                 "porcentaje": "10%",
                 "responsable": "Luis",
                 "titulo": "Fase 2: Frontend"
-            },
-            "id": "2.0",
-            "parent": ""
+            }
         },
         {
             "id": "3.0",
